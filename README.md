@@ -36,3 +36,9 @@ the start and end times side by side.
 Updating the range slider in the plot doesn't update the whole page.
 
 I tried to make the slider interactive using both [Streamlit's Plotly events](https://github.com/streamlit/streamlit/issues/455#issuecomment-2111149108) and the OSS [streamlit-plotly-events](https://github.com/ethanhe42/streamlit-plotly-events) but haven't succeeded with either one (yet)."""
+
+---
+
+## License
+
+This project is licensed under the MIT License; see the [LICENSE](https://github.com/pokt-network/poktroll/blob/main/LICENSE) file for details.
