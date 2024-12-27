@@ -98,13 +98,15 @@ def compare_crypto_assets(src_asset: str, compare_asset: str, default_days: int 
     if default_start_date < min_date:
         default_start_date = min_date
 
-    # Create date selector
+    # Create date selector with auto-generated key
+    slider_key = f"{src_asset.lower()}_{compare_asset.lower()}_slider"
     start_date, end_date = st.slider(
-        "Select Date Range:",
+        f"Select Date Range for {src_asset} vs {compare_asset}:",
         min_value=min_date.date(),
         max_value=max_date.date(),
         value=(default_start_date.date(), default_end_date.date()),
         format="YYYY-MM-DD",
+        key=slider_key,
     )
 
     # Filter data and calculate returns
@@ -211,10 +213,12 @@ def main():
         display_comparison(result)
 
     with tab2:
-        st.info("BTC vs SOL comparison coming soon!")
+        result = compare_crypto_assets("BTC", "SOL")
+        display_comparison(result)
 
     with tab3:
-        st.info("ETH vs SOL comparison coming soon!")
+        result = compare_crypto_assets("ETH", "SOL")
+        display_comparison(result)
 
 
 if __name__ == "__main__":
